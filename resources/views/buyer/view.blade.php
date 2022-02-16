@@ -56,6 +56,7 @@
                 Interface
             </div>
 
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -123,7 +124,6 @@
                     </div>
                 </div>
             </li>
-
 
 
             <!-- Divider -->
@@ -370,41 +370,49 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                        <th>Buying Price</th>
-                                            <th>Car Number</th>
-                                            <th>KGS</th>
-                                            <th>Commodity</th>
-                                            <th>Border Cost</th>
-                                            <th>Selling Price</th>
-                                            <th>B-Payment Status</th>
-                                            <th>Record Date</th>
+                                        <th>Name</th>
+                                            <th>Contact</th>
+                                            <th>Location</th>
+                                            <th>Country</th>
+                                            <th> Buying Price</th>
+                                            <th>No. Of KGS</th>
+                                            <th>Vehicle No</th>
+                                            <th>Driver Name</th>
+                                            <th>Driver Contact</th>
+                                            <th>Selling Date</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Buying Price</th>
-                                            <th>Car Number</th>
-                                            <th>KGS</th>
-                                            <th>Commodity</th>
-                                            <th>Border Cost</th>
-                                            <th>Selling Price</th>
-                                            <th>B-Payment Status</th>
-                                            <th>Record Date</th>
+                                        <th>Contact</th>
+                                            <th>Location</th>
+                                            <th>Country</th>
+                                            <th> Buying Price</th>
+                                            <th>No. Of KGS</th>
+                                            <th>Vehicle No</th>
+                                            <th>Driver Name</th>
+                                            <th>Driver Contact</th>
+                                            <th>Selling Date</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                    
                                     <!-- 'buying_price','car_no','kgs','comodity','border_cost','selling_price','kgs_sold_delivered','other_cost',
         'seller_name','seller_balance','buyer_payment_status' -->
-                                        @foreach($cogs as $cog)
+                                        @foreach($buyers as $buyer)
                                             <tr>
-                                                <td>{{$cog->buying_price}}</td>
-                                                <td>{{$cog->car_no}}</td>
-                                                <td>{{$cog->kgs}}</td>
-                                                <td>{{$cog->comodity}}</td>
-                                                <td>{{$cog->border_cost}}</td>
-                                                <td>{{$cog->selling_price}}</td>
-                                                <td>{{$cog->buyer_payment_status}}</td>
-                                                <td>{{$cog->created_at->format('d/M/Y')}}</td>
+                                                <td>{{$buyer->name}}</td>
+                                                <td>{{$buyer->contact}}</td>
+                                                <td>{{$buyer->location}}</td>
+                                                <td>{{$buyer->country}}</td>
+                                                <td>{{$buyer->buying_price}}</td>
+                                                <td>{{$buyer->no_kgs}}</td>
+                                                <td>{{$buyer->vehicle_no}}</td>
+                                                <td>{{$buyer->driver_name}}</td>
+                                                <td>{{$buyer->driver_contact}}</td>
+                                                <td>{{$buyer->vehicle_no}}</td>
+                                                <td>{{$buyer->date_of_selling}}</td>  
+                                                <td>{{$buyer->created_at->format('d/M/Y')}}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -460,8 +468,8 @@
         </div>
     </div>
 
-   <!-- Bootstrap core JavaScript-->
-   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+     <!-- Bootstrap core JavaScript-->
+     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->

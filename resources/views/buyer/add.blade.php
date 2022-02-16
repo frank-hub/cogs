@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>FireSeason - Tables</title>
+    <title>SB Admin 2 - Blank</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -56,6 +56,7 @@
                 Interface
             </div>
 
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -149,11 +150,9 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </form>
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
                     <!-- Topbar Search -->
                     <form
@@ -355,63 +354,65 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                        <th>Buying Price</th>
-                                            <th>Car Number</th>
-                                            <th>KGS</th>
-                                            <th>Commodity</th>
-                                            <th>Border Cost</th>
-                                            <th>Selling Price</th>
-                                            <th>B-Payment Status</th>
-                                            <th>Record Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Buying Price</th>
-                                            <th>Car Number</th>
-                                            <th>KGS</th>
-                                            <th>Commodity</th>
-                                            <th>Border Cost</th>
-                                            <th>Selling Price</th>
-                                            <th>B-Payment Status</th>
-                                            <th>Record Date</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                    <!-- 'buying_price','car_no','kgs','comodity','border_cost','selling_price','kgs_sold_delivered','other_cost',
-        'seller_name','seller_balance','buyer_payment_status' -->
-                                        @foreach($cogs as $cog)
-                                            <tr>
-                                                <td>{{$cog->buying_price}}</td>
-                                                <td>{{$cog->car_no}}</td>
-                                                <td>{{$cog->kgs}}</td>
-                                                <td>{{$cog->comodity}}</td>
-                                                <td>{{$cog->border_cost}}</td>
-                                                <td>{{$cog->selling_price}}</td>
-                                                <td>{{$cog->buyer_payment_status}}</td>
-                                                <td>{{$cog->created_at->format('d/M/Y')}}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                    <h1 class="h3 mb-4 text-gray-800">Add Buyer</h1>
+                    <form method="post" action="{{route('post_buyers')}}">
+                        @csrf
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="text" name="name" class="form-control form-control-user" id="exampleFirstName"
+                                    placeholder="Full Name">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" name="contact" class="form-control form-control-user" id="exampleLastName"
+                                    placeholder="Contact">
                             </div>
                         </div>
-                    </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="text" name="location" class="form-control form-control-user" id="exampleFirstName"
+                                    placeholder="Location">
+                            </div>
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="text" name="country" class="form-control form-control-user" id="exampleFirstName"
+                                    placeholder="Country">
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="number" name="buying_price" class="form-control form-control-user" id="exampleFirstName"
+                                    placeholder="Selling Price">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" name="no_kgs" class="form-control form-control-user" id="exampleLastName"
+                                    placeholder="Numeber Of KGs">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="text" name="vehicle_no" class="form-control form-control-user" id="exampleFirstName"
+                                    placeholder="Vehicle Number">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" name="driver_name" class="form-control form-control-user" id="exampleLastName"
+                                    placeholder="Driver Name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="text" name="driver_contact" class="form-control form-control-user" id="exampleFirstName"
+                                    placeholder="Driver Contact">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="date" name="date_of_buying" class="form-control form-control-user" id="exampleLastName"
+                                    placeholder=" Date of Selling">
+                            </div>
+                        </div>
+                        
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary">SUBMIT</button>
+                    </form>
 
                 </div>
                 <!-- /.container-fluid -->

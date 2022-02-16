@@ -25,6 +25,19 @@ Route::get('/view',[COGS::class,'index']);
 
 Route::post('/add',[App\Http\Controllers\COGSController::class,'store'])->name('post_cogs');
 
+Route::get('/farmers/add', function (){
+    return view('/farmers/add');
+});
+Route::get('/fermers/view',[App\Http\Controllers\FarmerController::class,'index']);
+Route::post('/farmers/add',[App\Http\Controllers\FarmerController::class,'store'])->name('post_farmers');
+
+Route::get('/buyer/add', function (){
+    return view('/buyer/add');
+});
+Route::get('/buyer/view',[App\Http\Controllers\FarmerController::class,'index']);
+Route::post('/buyer/add',[App\Http\Controllers\FarmerController::class,'store'])->name('post_buyer');
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
